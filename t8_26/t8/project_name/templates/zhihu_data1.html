@@ -1,0 +1,983 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="refresh" content="20">
+   <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="SNS内容安全监测系统" />
+    <meta name="author" content="川" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Free Responsive Photography Template</title>
+	<script src="{% static 'js/assets/js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/assets/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/assets/js/echarts.min.js' %}"></script>
+	<script src="{% static 'js/assets/js/map.js' %}"></script>
+	<script src="{% static 'js/assets/js/bootstrap-table.js' %}"></script>
+	<script src="{% static 'js/assets/js/bootstrap-table-export.js' %}"></script>
+	<script src="{% static 'js/assets/js/tableExport.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/assets/js/scroll.js' %}"></script>
+	<link href="{% static 'js/assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/assets/css/style.css' %}" rel="stylesheet" />
+	<link href="{% static 'js/assets/css/bootstrap-table.css' %}" rel="stylesheet" />
+</head>
+<body style="background:#1B1B1B">
+  <div id="header" >
+        <div class="container" >
+       <div class="row">
+           <div class="col-md-4 logo-div"  >
+               <div class="logo-inner">
+                   <div class="logo-name">
+                   <a href="index.html"  >
+ <span > SNS内容安全监测系统 </span>
+                   <small >SNS content security monitoring system</small>
+                       </a>
+                       </div>
+                   <br />
+                   <div class="links-home">
+                        <a href="monitor"  >实时监测  /</a>
+                    <a href="weibo_data"  >微博数据分析 /</a>
+                    <a href="zhihu_data" >知乎数据分析 /</a>
+                   <a href="data_pic"  >数据分析图片 </a>
+                   </div>
+                  
+               </div>
+
+           </div>
+           <div class="col-md-8 header-text-top " >
+              <br />
+知乎数据分析模块根据传入的特定话题，获取核心问题与领袖意见，同时将所有回答进行高频词标注与特殊词标注，展现其主题内容分布特点。
+          <br /> Zhihu according to the specific topic of incoming data analysis module, get the core problem and leader, at the same time, all of the answer to the high frequency word annotation and special words, show the topic content distribution characteristics.
+
+		   </div>
+       </div>
+   </div>
+    </div>   
+    <!--END HEADER SECTION-->
+	
+	
+<div class="container">
+<div class="lingxiu1">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3 style="color:#999">
+				&nbsp;请输入查找关键词
+			</h3>
+			<div class="row clearfix">
+				<div class="col-md-9 column">
+						<div class="col-md-6 column">
+						<form name="frm">
+							<input type="text" name="name" id= "id_name" class="form-control"placeholder="请输入字段名" / >
+						</form>
+
+
+		</br>
+		</div>
+		<div class="col-md-3 column">
+        <a href="实时监测.html"><script> var input1=document.getElementById("id_name").value;</script><button class="btn btn-info btn-search">查找</button></a>
+				</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3 style="color:#999">
+				h3. 这是一套可视化布局系统.
+			</h3>
+			<table class="table">
+				<thead>
+					<tr style="color:#999">
+						<th>
+							编号
+						</th>
+						<th>
+							产品
+						</th>
+						<th>
+							交付时间
+						</th>
+						<th>
+							状态
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="success" >
+						<td>
+							1
+						</td>
+						<td>
+							TB - Monthly
+						</td>
+						<td>
+							01/04/2012
+						</td>
+						<td>
+							Default
+						</td>
+					</tr>
+					<tr class="success">
+						<td>
+							1
+						</td>
+						<td>
+							TB - Monthly
+						</td>
+						<td>
+							01/04/2012
+						</td>
+						<td>
+							Approved
+						</td>
+					</tr>
+					<tr bgcolor="e91e6f";>
+						<td>
+							2
+						</td>
+						<td>
+							TB - Monthly
+						</td>
+						<td>
+							02/04/2012
+						</td>
+						<td>
+							Declined
+						</td>
+					</tr>
+					<tr class="success">
+						<td>
+							3
+						</td>
+						<td>
+							TB - Monthly
+						</td>
+						<td>
+							03/04/2012
+						</td>
+						<td>
+							Pending
+						</td>
+					</tr>
+					<tr class="success">
+						<td>
+							4
+						</td>
+						<td>
+							TB - Monthly
+						</td>
+						<td>
+							04/04/2012
+						</td>
+						<td>
+							Call in to confirm
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	
+	
+	//定义知乎表格相关变量
+	<script>
+	var title1= "华为闪存门算过去了吗？";
+	var p1=0.16165413533834577;
+	var answer_words1="\"华为\",\"手机\",\"现在\",\"质量\",\"觉得\",\"之后\",\"推荐\",\"然后\",\"用户\",\"出来\",\"充电\",\"时候\",\"什么\"";
+	var title2= "华为闪存门算过去了吗？";
+	var p2=0.16165413533834577;
+	var answer_words2="华为,手机,现在,质量,觉得,之后,推荐,然后,用户,出来,充电,时候,什么";
+	var title3= "华为闪存门算过去了吗？";
+	var p3=0.16165413533834577;
+	var answer_words3="华为,手机,现在,质量,觉得,之后,推荐,然后,用户,出来,充电,时候,什么";
+	var title4= "华为闪存门算过去了吗？";
+	var p4=0.16165413533834577;
+	var answer_words4="华为,手机,现在,质量,觉得,之后,推荐,然后,用户,出来,充电,时候,什么";
+	var title5= "华为闪存门算过去了吗？";
+	var p5=0.16165413533834577;
+	var answer_words5="华为,手机,现在,质量,觉得,之后,推荐,然后,用户,出来,充电,时候,什么";
+	var title6= "华为闪存门算过去了吗？";
+	var p6=0.16165413533834577;
+	var answer_words6="华为,手机,现在,质量,觉得,之后,推荐,然后,用户,出来,充电,时候,什么";
+	var title7= "华为闪存门算过去了吗？";
+	var p7=0.16165413533834577;
+	var answer_words7="华为,手机,现在,质量,觉得,之后,推荐,然后,用户,出来,充电,时候,什么";
+	var title8= "华为闪存门算过去了吗？";
+	var p8=0.16165413533834577;
+	var answer_words8="华为,手机,现在,质量,觉得,之后,推荐,然后,用户,出来,充电,时候,什么";
+
+    title1= {{tittle1|safe }};
+    p1 = {{ p1|safe }};
+    answer_words1 = {{ answer_words1|safe }};
+        title2= {{tittle2|safe }};
+    p2= {{ p2|safe }};
+    answer_words2 = {{ answer_words2|safe }};
+        title3= {{tittle3|safe }};
+    p3 = {{ p3|safe }};
+    answer_words3= {{ answer_words3|safe }};
+        title4= {{tittle4|safe }};
+    p4 = {{ p4|safe }};
+    answer_words4 = {{ answer_words4|safe }};
+        title5= {{tittle5|safe }};
+    p5= {{ p5|safe }};
+    answer_words5 = {{ answer_words5|safe }};
+        title6= {{tittle6|safe }};
+    p6= {{ p6|safe }};
+    answer_words6 = {{ answer_words6|safe }};
+        title7= {{tittle7|safe }};
+    p7 = {{ p7|safe }};
+    answer_words7 = {{ answer_words7|safe }};
+        title8= {{tittle8|safe }};
+    p8 = {{ p8|safe }};
+    answer_words8 = {{ answer_words8|safe }};
+	</script>
+	
+	
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3 style="color:#999">
+				知乎闪存文字分词内容
+			</h3>
+			<table class="table">
+				<thead>
+					<tr style="color:#999">
+						<th>
+							title
+						</th>
+						<th>
+							p(概率)
+						</th>
+						<th>
+							answer_words
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="success">
+						<td>
+							<a href="实时监测.html"><script>document.write(title1);</script></a>
+						</td>
+						<td>
+							<script>document.write(p1);</script>
+						</td>
+						<td>
+							<script>document.write(answer_words1);</script>
+						</td>
+					</tr>
+					<tr class="success">
+						<td>
+							<a href="实时监测.html"><script>document.write(title2);</script></a>
+						</td>
+						<td>
+							<script>document.write(p2);</script>
+						</td>
+						<td>
+							<script>document.write(answer_words2);</script>
+						</td>
+					</tr>
+					<tr class="success">
+						<td>
+							<a href="实时监测.htm3"><script>document.write(title3);</script></a>
+						</td>
+						<td>
+							<script>document.write(p3);</script>
+						</td>
+						<td>
+							<script>document.write(answer_words3);</script>
+						</td>
+					</tr>
+					<tr class="success">
+						<td>
+							<a href="实时监测.html"><script>document.write(title4);</script></a>
+						</td>
+						<td>
+							<script>document.write(p4);</script>
+						</td>
+						<td>
+							<script>document.write(answer_words4);</script>
+						</td>
+					</tr>
+										<tr class="success">
+						<td>
+							<a href="实时监测.html"><script>document.write(title5);</script></a>
+						</td>
+						<td>
+							<script>document.write(p5);</script>
+						</td>
+						<td>
+							<script>document.write(answer_words5);</script>
+						</td>
+					</tr>					<tr class="success">
+						<td>
+							<a href="实时监测.html"><script>document.write(title6);</script></a>
+						</td>
+						<td>
+							<script>document.write(p6);</script>
+						</td>
+						<td>
+							<script>document.write(answer_words6);</script>
+						</td>
+					</tr>					<tr class="success">
+						<td>
+							<a href="实时监测.html"><script>document.write(title7);</script></a>
+						</td>
+						<td>
+							<script>document.write(p7);</script>
+						</td>
+						<td>
+							<script>document.write(answer_words7);</script>
+						</td>
+					</tr>
+					<tr class="success">
+						<td>
+							<a href="实时监测.html"><script>document.write(title8);</script></a>
+						</td>
+						<td>
+							<script>document.write(p8);</script>
+						</td>
+						<td>
+							<script>document.write(answer_words8);</script>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column" style="color:#999">
+			<h3>
+				&nbsp;&nbsp;知乎闪存文字分词内容
+			</h3>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="table">
+		<div class="col-md-12 column">
+				<div id="content">
+						<div id="content-body">
+			
+				<div id="reportTableDiv" class="span10">
+				<table id="reportTable">
+				</table>
+				</div>
+				</div>
+				</div>
+		
+		
+			<script type="text/javascript">
+		var Data1 = [{"user_id":"2919565921","user_author":"-Liu爱秋","user_location":"烟台","user_time":"2017-05-27 16:36:30","user_content":"好久没有更博了，就发张过敏PS的照片吧[二哈]"},{"user_id":"2113930241","user_author":"旷野星辰188","user_location":"潍坊","user_time":"2017-05-27 16:31:49","user_content":"我围观了@唯我落日 的回答，该问题价值50.00元，围观仅1元，快来一起围观~ http://t.cn/RiJMXJr"}];
+		Data1={{ List5|safe }}
+		$(function () {
+			$('#reportTable').bootstrapTable({
+				method: 'get',
+				cache: true,      //设置为 false 禁用 AJAX 数据缓存
+				height: 800,
+				striped: false,   //设置为 true 会有隔行变色效果
+				pagination: true, //设置为 true 会在表格底部显示分页条
+				pageSize: 20,     //如果设置了分页，页面数据条数
+				pageNumber:1,    //如果设置了分页，首页页码
+				pageList: [ 20, 50, 100, 200],  //如果设置了分页，设置可供选择的页面数据条数。设置为All 则显示所有记录。
+				search: true,
+				showColumns: true,   //是否显示 内容列下拉框
+				showRefresh: true,   //是否显示 刷新按钮
+				showExport: true,
+				exportTypes: ['csv','txt','xml'],
+				search: true,
+				clickToSelect: true,  //设置true 将在点击行时，自动选择rediobox 和 checkbox
+				columns: [{field:"user_id",title:"id",align:"center",valign:"middle",sortable:"true"},{field:"user_author",title:"author",align:"center",valign:"middle",sortable:"true"},{field:"user_location",title:"location",align:"center",valign:"middle",sortable:"true"},{field:"user_time",title:"time",align:"center",valign:"middle",sortable:"true"},{field:"user_content",title:"content",align:"center",valign:"middle",sortable:"true"}],
+				data : Data1,
+				onPageChange: function (size, number) {
+                },
+                formatNoMatches: function(){
+                	return '无符合条件的记录';
+                }
+			});
+								
+			$(window).resize(function () {
+				$('#reportTable').bootstrapTable('resetView');
+			});
+		});
+		
+	</script>
+		
+		</div>
+	</div>
+</div>
+
+
+
+
+//定义领袖相关变量
+	<script>
+	var leader1= "法国培根";
+	var address1= "旅日华人，前职咨询，现创业公司。参与过日本零售、金融、IT等行业项目。主要答题范围：日语/日本政经社/电子产品/设计/东京生活";
+	var leader2= "张小凡";
+	var address2= "数码科技摄影爱好者&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	var leader3= "阿肥";
+	var address3= "现居深圳/计算机软件/勇气和梦想永不褪色";
+	var leader4= "楊甚麽";
+	var address4= "知乎电气QQ群：397942911/我已委托“维权骑士”（http://rightknights.com）为我的文章进行维权";
+	var leader5= "喜欢就叨几句";
+	var address5= "回不回答，全凭心情。就是任性！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	var leader6= "秋月酱";
+	var address6= "私募/操盘私募&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	var leader7= "逸叔";
+	var address7= "闪存内存工程师，空手道黑带，什么都感兴趣一点~";
+	var leader8= "苏星";
+	var address8= "图钉/woter卡基/图钉/woter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	
+	leader1={{ leader1|safe }};
+	address1={{ address1|safe }};
+		leader2={{ leader2|safe }};
+	address2={{ address2|safe }};
+		leader3={{ leader3|safe }};
+	address3={{ address3|safe }};
+		leader4={{ leader4|safe }};
+	address4={{ address4|safe }};
+		leader5={{ leader5|safe }};
+	address5={{ address5|safe }};
+		leader6={{ leader6|safe }};
+	address6={{ address7|safe }};
+		leader7={{ leader7|safe }};
+	address7={{ address1|safe }};
+		leader8={{ leader1|safe }};
+	address8={{ address1|safe }};
+	
+
+	</script>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column" style="color:#999">
+			<h3>
+				知乎领袖意见
+			</h3>
+		</div>
+	</div>
+</div>
+<div class = "container">
+	<div class="lingxiu">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+
+			<div class="row clearfix">
+				<div class="col-md-3 column" align="center">
+					<a href="实时监测.html"><img height="140" width="140" src="{% static 'js/assets/img/lingxiu/1.jpg' %}" class="img-circle" /></a>
+					<p>
+						 <span><a href="实时监测.html"><script>document.write(leader1);</script></a></br>
+<a href="实时监测.html"><script>document.write(address1);</script></a></span>
+					</p>
+				</div>
+				<div class="col-md-3 column" align="center">
+					<a href="实时监测.html"><img height="140" width="140" src="{% static 'js/assets/img/lingxiu/2.jpg' %}" class="img-circle" /></a>
+					<p>
+						 <span><a href="实时监测.html"><script>document.write(leader2);</script></a></br>
+<a href="实时监测.html"><script>document.write(address2);</script></a></span>
+					</p>
+				</div>
+				<div class="col-md-3 column" align="center">
+					<a href="实时监测.html"><img height="140" width="140" src="{% static 'js/assets/img/lingxiu/3.jpg' %}" class="img-circle" /></a>
+					<p>
+						 <span><a href="实时监测.html"><script>document.write(leader3);</script></a></br>
+<a href="实时监测.html"><script>document.write(address3);</script></a></span>
+					</p>
+				</div>
+				<div class="col-md-3 column" align="center">
+					<a href="实时监测.html"><img height="140" width="140" src="{% static 'js/assets/img/lingxiu/4.jpg' %}" class="img-circle" /></a>
+					<p>
+						 <span><a href="实时监测.html"><script>document.write(leader4);</script></a></br>
+<a href="实时监测.html"><script>document.write(address4);</script></a></span>
+					</p>
+				</div>
+			</div>
+			<div class="row clearfix">
+				<div class="col-md-3 column" align="center">
+					<a href="实时监测.html"><img height="140" width="140" src="{% static 'js/assets/img/lingxiu/5.jpg' %}" class="img-circle" /></a>
+					<p>
+						 <span><a href="实时监测.html"><script>document.write(leader5);</script></a></br>
+<a href="实时监测.html"><script>document.write(address5);</script></a></span>
+					</p>
+				</div>
+				<div class="col-md-3 column" align="center">
+					<a href="实时监测.html"><img height="140" width="140" src="{% static 'js/assets/img/lingxiu/6.jpg' %}" class="img-circle" /></a>
+					<p>
+						 <span><a href="实时监测.html"><script>document.write(leader6);</script></a></br>
+<a href="实时监测.html"><script>document.write(address6);</script></a></span>
+					</p>
+				</div>
+				<div class="col-md-3 column" align="center">
+					<a href="实时监测.html"><img height="140" width="140" src="{% static 'js/assets/img/lingxiu/7.jpg' %}" class="img-circle" /></a>
+					<p>
+						 <span><a href="实时监测.html"><script>document.write(leader7);</script></a></br>
+<a href="实时监测.html"><script>document.write(address7);</script></a></span>
+					</p>
+				</div>
+				<div class="col-md-3 column" align="center">
+					<a href="实时监测.html"><img height="140" width="140" src="{% static 'js/assets/img/lingxiu/8.jpg' %}" class="img-circle" /></a>
+					<p>
+						 <span><a href="实时监测.html"><script>document.write(leader8);</script></a></br>
+<a href="实时监测.html"><script>document.write(address8);</script></a></span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+		<div class="col-md-4 column">
+			 <a id="modal-732034" href="#modal-container-732034" role="button" class="btn" data-toggle="modal" style="color:#999">知乎关系图</a>
+			<div class="modal fade" id="modal-container-732034" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title" id="myModalLabel">
+								知乎关系图
+							</h4>
+						</div>
+						<div class="modal-body">
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 550px;height:550px;"></div>
+    <script type="text/javascript">
+	var data1 = [        {  
+            "name": "翟振轶律师",//关系网名称  
+            "keyword": {},  
+            "base": "翟振轶律师"  
+        }  ,
+		        {  
+            "name": "胡尊杰",//关系网名称  
+            "keyword": {},  
+            "base": "胡尊杰"  
+        },
+				        {  
+            "name": "肖查宁",//关系网名称  
+            "keyword": {},  
+            "base": "肖查宁"  
+        }
+		
+		];
+	var data2 = [        {  
+            "name": "翟振轶律师",//节点名称  
+            "value": 100, 
+            "category": 0//与关系网类别索引对应，此处只有一个关系网所以这里写0  
+        },  
+        {  
+            "name": "谢金娣",  
+              "value": 10, 
+            "category": 0  
+        },  
+        {  
+            "name": "大实话",  
+            "value": 10, 
+            "category": 0  
+        },
+		        {  
+            "name": "法盲",  
+            "value": 10, 
+            "category": 0  
+        },
+		        {  
+            "name": "大风过后可",  
+            "value": 10, 
+            "category": 0  
+        },
+		        {  
+            "name": "今夜月色很好",  
+            "value": 100, 
+            "category": 0  
+        },
+		        {  
+            "name": "唯爱金白沙",  
+            "value": 12, 
+            "category": 0  
+        },
+				        {  
+            "name": "tommoc",  
+            "value": 41, 
+            "category": 0  
+        },
+				        {  
+            "name": "晓风",  
+            "value": 50, 
+            "category": 0  
+        },
+				        {  
+            "name": "郭丹",  
+            "value": 10, 
+            "category": 0  
+        },
+		{
+		    "name": "韩同雪",  
+            "value": 10, 
+            "category": 0  
+        },{  
+            "name": "胡尊杰",//节点名称  
+            "value": 100, 
+            "category": 1//与关系网类别索引对应，此处只有一个关系网所以这里写0  
+        },  
+        {  
+            "name": "张少壮",  
+              "value": 72, 
+            "category": 1  
+        },  
+        {  
+            "name": "bmw li",  
+            "value": 30, 
+            "category": 1  
+        },
+		        {  
+            "name": "AKI",  
+            "value": 27, 
+            "category": 1  
+        },
+		        {  
+            "name": "修远兮",  
+            "value": 55, 
+            "category": 1  
+        },
+		        {  
+            "name": "轩辕偏胖",  
+            "value": 100, 
+            "category": 1  
+        },
+		        {  
+            "name": "如题",  
+            "value": 12, 
+            "category": 1  
+        },
+				        {  
+            "name": "李猜猜",  
+            "value": 41, 
+            "category": 1 
+        },
+				        {  
+            "name": "梁超",  
+            "value": 50, 
+            "category": 1 
+        },
+				        {  
+            "name": "川南",  
+            "value": 10, 
+            "category": 1  
+        },
+		{
+		    "name": "yandeqiang",  
+            "value": 10, 
+            "category": 1  
+        },{  
+            "name": "肖查宁",//节点名称  
+            "value": 100, 
+            "category": 2//与关系网类别索引对应，此处只有一个关系网所以这里写0  
+        },  
+        {  
+            "name": "无印良品",  
+              "value": 72, 
+            "category": 2  
+        },  
+        {  
+            "name": "陈文星",  
+            "value": 30, 
+            "category": 2  
+        },
+		        {  
+            "name": "枪神周润发",  
+            "value": 27, 
+            "category": 2  
+        },
+		        {  
+            "name": "二西复之",  
+            "value": 55, 
+            "category": 2  
+        },
+		        {  
+            "name": "bafguy",  
+            "value": 100, 
+            "category": 2  
+        },
+		        {  
+            "name": "Lobster",  
+            "value": 12, 
+            "category": 2  
+        },
+				        {  
+            "name": "高松波",  
+            "value": 41, 
+            "category": 2
+        },
+				        {  
+            "name": "雨霖",  
+            "value": 50, 
+            "category": 2 
+        },
+				        {  
+            "name": "刘震宇",  
+            "value": 10, 
+            "category": 2  
+        },
+		{
+		    "name": "yandeqiang",  
+            "value": 10, 
+            "category": 2  
+        }];	
+	var data3 = [        {  
+            "source": 0,//起始节点，0表示第一个节点  
+            "target": 1 //目标节点，1表示与索引为1的节点进行连接  
+        },  
+        {  
+            "source": 0,  
+            "target": 2  
+        },
+		        {  
+            "source": 0,
+            "target": 3 
+        }, 
+		        {  
+            "source": 0,  
+            "target": 4  
+        },		        {  
+            "source": 0,
+            "target": 5 
+        }, 		        {  
+            "source": 0,
+            "target": 6 
+        }, 		        {  
+            "source": 0,
+            "target": 7 
+        }, 		        {  
+            "source": 0,
+            "target": 8 
+        }, 		        {  
+            "source": 0,
+            "target": 9 
+        },{  
+            "source": 0,
+            "target": 10 
+        },	{  
+            "source": 11,//起始节点，0表示第一个节点  
+            "target": 12 //目标节点，1表示与索引为1的节点进行连接  
+        },  
+        {  
+            "source": 11,  
+            "target": 13  
+        },
+		        {  
+            "source": 11,
+            "target": 14 
+        }, 
+		        {  
+            "source": 11,  
+            "target": 15  
+        },		        {  
+            "source": 11,
+            "target": 16 
+        }, 		        {  
+            "source": 11,
+            "target": 17 
+        }, 		        {  
+            "source": 11,
+            "target": 18 
+        }, 		        {  
+            "source": 11,
+            "target": 19 
+        }, 		        {  
+            "source": 11,
+            "target": 20 
+        },{  
+            "source": 11,
+            "target": 21 
+        },{  
+            "source": 22,//起始节点，0表示第一个节点  
+            "target": 23 //目标节点，1表示与索引为1的节点进行连接  
+        },  
+        {  
+            "source": 22,  
+            "target": 24  
+        },
+		        {  
+            "source": 22,
+            "target": 25 
+        }, 
+		        {  
+            "source": 22,  
+            "target": 26  
+        },		        {  
+            "source": 22,
+            "target": 27
+        }, 		        {  
+            "source": 22,
+            "target": 28 
+        }, 		        {  
+            "source": 22,
+            "target": 29 
+        }, 		        {  
+            "source": 22,
+            "target": 30 
+        }, 		        {  
+            "source": 22,
+            "target": 31 
+        }];
+		var data4 = ['翟振轶律师','胡尊杰','肖查宁']
+        data1 = {{ List1|safe }};
+        data2 = {{ List2|safe }};
+        data3 = {{ List3|safe }};
+        data4 = {{ List4|safe }};
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+		myChart.showLoading();
+		var webkitDep = {  
+    "type": "force",  
+    "categories": data1,  
+    "nodes": data2,  
+	"links": data3
+};  
+		myChart.hideLoading();
+        // 指定图表的配置项和数据
+        var option = {
+        legend: {  
+            data: data4//此处的数据必须和关系网类别中name相对应 
+				
+        },  
+        series: [{  
+            type: 'graph',  
+            layout: 'circular', 
+			                circular: {
+                    rotateLabel: true
+                },
+            animation: false,
+			roam: true,
+            label: {  
+                normal: {  
+                    show:true,  
+                    position: 'right'  
+                }  
+            },  
+			                lineStyle: {
+                    normal: {
+                        color: 'source',
+                        curveness: 0.3
+                    }
+                },
+            draggable: true,  
+            data: webkitDep.nodes.map(function (node, idx) {  
+                node.id = idx; 
+				node.symbolSize /= 2;
+				node.symbolSize = node.value;
+				node.label = { normal: {
+									show: node.symbolSize >0
+									}};
+                return node;  
+            }),  
+            categories: webkitDep.categories,  
+
+            edges: webkitDep.links  
+        }]  
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>.
+						</div>
+						<div class="modal-footer">
+							 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button type="button" class="btn btn-primary">保存</button>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+				<div class="col-md-4 column">
+					 <a id="modal-738758" href="#modal-container-738758" role="button" class="btn" data-toggle="modal">生成词云</a>
+					
+					<div class="modal fade" id="modal-container-738758" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4 class="modal-title" id="myModalLabel">
+										词云
+									</h4>
+								</div>
+								<div class="modal-body">
+									<img height="540" width="540" src="{% static 'js/assets/img/lingxiu/用户画像地点.jpg' %}" />
+									<img height="540" width="540" src="{% static 'js/assets/img/lingxiu/用户画像职业.jpg' %}" />
+								</div>
+								<div class="modal-footer">
+									 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button type="button" class="btn btn-primary">保存</button>
+								</div>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="col-md-4 column">
+					 <a id="modal-958791" href="#modal-container-958791" role="button" class="btn" data-toggle="modal">生成基尼系数</a>
+					
+					<div class="modal fade" id="modal-container-958791" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4 class="modal-title" id="myModalLabel">
+										基尼系数图
+									</h4>
+								</div>
+								<div class="modal-body">
+									<img height="540" width="540" src="{% static 'js/assets/img/lingxiu/基尼系数.jpg' %}" />
+								</div>
+								<div class="modal-footer">
+									 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button type="button" class="btn btn-primary">保存</button>
+								</div>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+    <div class="footer-sec"  >
+        <div class="container" >
+       <div class="row">
+           <div class="col-md-12 foo-inner" >
+ 2017  | 5 29 
+           </div>
+           </div>
+       </div>
+         </div>
+
+
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="{% static 'js/echarts.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-1.8.0.js' %}"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px;height:800px;"></div>
+    <script type="text/javascript">
+	var data1 = [        {  
+            "name": "翟振轶律师",//关系网名称  
+            "keyword": {},  
+            "base": "翟振轶律师"  
+        }  ,
+		        {  
+            "name": "胡尊杰",//关系网名称  
+            "keyword": {},  
+            "base": "胡尊杰"  
+        },
+				        {  
+            "name": "肖查宁",//关系网名称  
+            "keyword": {},  
+            "base": "肖查宁"  
+        }
+		
+		];
+	var data2 = [        {  
+            "name": "翟振轶律师",//节点名称  
+            "value": 100, 
+            "category": 0//与关系网类别索引对应，此处只有一个关系网所以这里写0  
+        },  
+        {  
+            "name": "谢金娣",  
+              "value": 10, 
+            "category": 0  
+        },  
+        {  
+            "name": "大实话",  
+            "value": 10, 
+            "category": 0  
+        },
+		        {  
+            "name": "法盲",  
+            "value": 10, 
+            "category": 0  
+        },
+		        {  
+            "name": "大风过后可",  
+            "value": 10, 
+            "category": 0  
+        },
+		        {  
+            "name": "今夜月色很好",  
+            "value": 100, 
+            "category": 0  
+        },
+		        {  
+            "name": "唯爱金白沙",  
+            "value": 12, 
+            "category": 0  
+        },
+				        {  
+            "name": "tommoc",  
+            "value": 41, 
+            "category": 0  
+        },
+				        {  
+            "name": "晓风",  
+            "value": 50, 
+            "category": 0  
+        },
+				        {  
+            "name": "郭丹",  
+            "value": 10, 
+            "category": 0  
+        },
+		{
+		    "name": "韩同雪",  
+            "value": 10, 
+            "category": 0  
+        },{  
+            "name": "胡尊杰",//节点名称  
+            "value": 100, 
+            "category": 1//与关系网类别索引对应，此处只有一个关系网所以这里写0  
+        },  
+        {  
+            "name": "张少壮",  
+              "value": 72, 
+            "category": 1  
+        },  
+        {  
+            "name": "bmw li",  
+            "value": 30, 
+            "category": 1  
+        },
+		        {  
+            "name": "AKI",  
+            "value": 27, 
+            "category": 1  
+        },
+		        {  
+            "name": "修远兮",  
+            "value": 55, 
+            "category": 1  
+        },
+		        {  
+            "name": "轩辕偏胖",  
+            "value": 100, 
+            "category": 1  
+        },
+		        {  
+            "name": "如题",  
+            "value": 12, 
+            "category": 1  
+        },
+				        {  
+            "name": "李猜猜",  
+            "value": 41, 
+            "category": 1 
+        },
+				        {  
+            "name": "梁超",  
+            "value": 50, 
+            "category": 1 
+        },
+				        {  
+            "name": "川南",  
+            "value": 10, 
+            "category": 1  
+        },
+		{
+		    "name": "yandeqiang",  
+            "value": 10, 
+            "category": 1  
+        },{  
+            "name": "肖查宁",//节点名称  
+            "value": 100, 
+            "category": 2//与关系网类别索引对应，此处只有一个关系网所以这里写0  
+        },  
+        {  
+            "name": "无印良品",  
+              "value": 72, 
+            "category": 2  
+        },  
+        {  
+            "name": "陈文星",  
+            "value": 30, 
+            "category": 2  
+        },
+		        {  
+            "name": "枪神周润发",  
+            "value": 27, 
+            "category": 2  
+        },
+		        {  
+            "name": "二西复之",  
+            "value": 55, 
+            "category": 2  
+        },
+		        {  
+            "name": "bafguy",  
+            "value": 100, 
+            "category": 2  
+        },
+		        {  
+            "name": "Lobster",  
+            "value": 12, 
+            "category": 2  
+        },
+				        {  
+            "name": "高松波",  
+            "value": 41, 
+            "category": 2
+        },
+				        {  
+            "name": "雨霖",  
+            "value": 50, 
+            "category": 2 
+        },
+				        {  
+            "name": "刘震宇",  
+            "value": 10, 
+            "category": 2  
+        },
+		{
+		    "name": "yandeqiang",  
+            "value": 10, 
+            "category": 2  
+        }];	
+	var data3 = [        {  
+            "source": 0,//起始节点，0表示第一个节点  
+            "target": 1 //目标节点，1表示与索引为1的节点进行连接  
+        },  
+        {  
+            "source": 0,  
+            "target": 2  
+        },
+		        {  
+            "source": 0,
+            "target": 3 
+        }, 
+		        {  
+            "source": 0,  
+            "target": 4  
+        },		        {  
+            "source": 0,
+            "target": 5 
+        }, 		        {  
+            "source": 0,
+            "target": 6 
+        }, 		        {  
+            "source": 0,
+            "target": 7 
+        }, 		        {  
+            "source": 0,
+            "target": 8 
+        }, 		        {  
+            "source": 0,
+            "target": 9 
+        },{  
+            "source": 0,
+            "target": 10 
+        },	{  
+            "source": 11,//起始节点，0表示第一个节点  
+            "target": 12 //目标节点，1表示与索引为1的节点进行连接  
+        },  
+        {  
+            "source": 11,  
+            "target": 13  
+        },
+		        {  
+            "source": 11,
+            "target": 14 
+        }, 
+		        {  
+            "source": 11,  
+            "target": 15  
+        },		        {  
+            "source": 11,
+            "target": 16 
+        }, 		        {  
+            "source": 11,
+            "target": 17 
+        }, 		        {  
+            "source": 11,
+            "target": 18 
+        }, 		        {  
+            "source": 11,
+            "target": 19 
+        }, 		        {  
+            "source": 11,
+            "target": 20 
+        },{  
+            "source": 11,
+            "target": 21 
+        },{  
+            "source": 22,//起始节点，0表示第一个节点  
+            "target": 23 //目标节点，1表示与索引为1的节点进行连接  
+        },  
+        {  
+            "source": 22,  
+            "target": 24  
+        },
+		        {  
+            "source": 22,
+            "target": 25 
+        }, 
+		        {  
+            "source": 22,  
+            "target": 26  
+        },		        {  
+            "source": 22,
+            "target": 27
+        }, 		        {  
+            "source": 22,
+            "target": 28 
+        }, 		        {  
+            "source": 22,
+            "target": 29 
+        }, 		        {  
+            "source": 22,
+            "target": 30 
+        }, 		        {  
+            "source": 22,
+            "target": 31 
+        }];
+		var data4 = ['翟振轶律师','胡尊杰','肖查宁']
+        data1 = {{ List1|safe }};
+        data2 = {{ List2|safe }};
+        data3 = {{ List3|safe }};
+        data4 = {{ List4|safe }};
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+		myChart.showLoading();
+		var webkitDep = {  
+    "type": "force",  
+    "categories": data1,  
+    "nodes": data2,  
+	"links": data3
+};  
+		myChart.hideLoading();
+        // 指定图表的配置项和数据
+        var option = {
+        legend: {  
+            data: data4//此处的数据必须和关系网类别中name相对应 
+				
+        },  
+        series: [{  
+            type: 'graph',  
+            layout: 'circular', 
+			                circular: {
+                    rotateLabel: true
+                },
+            animation: false,
+			roam: true,
+            label: {  
+                normal: {  
+                    show:true,  
+                    position: 'right'  
+                }  
+            },  
+			                lineStyle: {
+                    normal: {
+                        color: 'source',
+                        curveness: 0.3
+                    }
+                },
+            draggable: true,  
+            data: webkitDep.nodes.map(function (node, idx) {  
+                node.id = idx; 
+				node.symbolSize /= 2;
+				node.symbolSize = node.value;
+				node.label = { normal: {
+									show: node.symbolSize >0
+									}};
+                return node;  
+            }),  
+            categories: webkitDep.categories,  
+
+            edges: webkitDep.links  
+        }]  
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
